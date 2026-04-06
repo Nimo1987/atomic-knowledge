@@ -6,6 +6,14 @@ Atomic Knowledge is a platform-neutral protocol for building agent-maintained wo
 
 It is inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of rediscovering knowledge from raw documents on every question, an agent incrementally maintains a persistent, interlinked markdown wiki.
 
+Use your existing agent, but give it a maintained markdown work-memory layer that survives session resets and can be reused across future research threads.
+
+## Why It Exists
+
+- session resets make it hard for agents to reuse earlier research context reliably
+- valuable judgments and synthesis often appear inside discussion, then disappear into chat history
+- users end up re-sending old links, notes, and conclusions instead of continuing from prior work
+
 ## What It Is
 
 Atomic Knowledge is for people who already use agents every day to:
@@ -37,11 +45,37 @@ Compared with mem0-style systems, it focuses on work memory rather than preferen
 
 Compared with ordinary RAG, it maintains a curated knowledge layer instead of only retrieving raw chunks at answer time.
 
+## Who It Is For
+
+Atomic Knowledge is a good fit if you:
+
+- already use an agent for research, comparison, synthesis, or long-running project work
+- want cross-session continuity without turning chat history into the source of truth
+- are comfortable with a local markdown and filesystem workflow
+- want something installable, inspectable, and portable rather than a hosted memory product
+
+It is not the best fit if you want:
+
+- a separate SaaS app or dashboard
+- a chat-only environment with no local file access or shell execution
+- a save-everything memory archive for all conversations
+
 ## Mainline
 
 `universal/` is the mainline product surface for this repository.
 
 It contains the platform-neutral version intended for GitHub distribution and cross-agent use.
+
+## Current Status
+
+Atomic Knowledge is currently an early open-source release.
+
+Today it is:
+
+- installable through a local bootstrap flow
+- example-backed through `universal/example-kb/`
+- evaluable through `universal/evals/`
+- designed for agents that can read local files and run shell commands
 
 ## Autonomy Boundary
 

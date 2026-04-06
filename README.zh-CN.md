@@ -6,6 +6,14 @@ Atomic Knowledge 是一个平台中立、基于 Markdown 的 agent 维护型 `wo
 
 它受 Andrej Karpathy 的 [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 启发：不是每次提问都从原始资料重新检索和综合，而是让 agent 持续维护一套可复用、可链接、可演进的 Markdown wiki。
 
+它不是替代你现有的 agent，而是给你现有的 agent 增加一层可维护、能跨 session 延续的 Markdown work memory。
+
+## 为什么它存在
+
+- 一换 session，agent 往往很难稳定复用之前研究过的上下文
+- 很多高价值判断和综合 insight 出现在讨论里，却又消失在聊天记录中
+- 用户经常不得不重复发送旧链接、旧笔记和旧结论，而不是在已有研究上继续推进
+
 ## 它是什么
 
 Atomic Knowledge 面向已经在日常使用 agent 的人，尤其是这些场景：
@@ -35,9 +43,35 @@ Atomic Knowledge 不是：
 
 相比普通 RAG，它维护的是一层持续整理过的知识层，而不是只在回答时临时取回原始 chunk。
 
+## 适合谁
+
+如果你符合下面这些情况，Atomic Knowledge 会比较适合你：
+
+- 已经在用 agent 做研究、比较、综合或长期项目推进
+- 希望跨 session 延续上下文，但不想把聊天记录本身当成真相源
+- 接受本地 markdown / 文件系统工作流
+- 想要一个可安装、可检查、可迁移的开源协议，而不是一个托管型 memory 产品
+
+如果你更想要下面这些东西，它可能就不太适合：
+
+- 一个独立的 SaaS app 或 dashboard
+- 一个不具备本地文件访问和 shell 执行能力的纯聊天环境
+- 一个“什么都记下来”的聊天记忆归档器
+
 ## 主线
 
 `universal/` 是这个仓库的主线产品面。
+
+## 当前状态
+
+Atomic Knowledge 当前处于较早期的开源发布阶段。
+
+现在已经具备：
+
+- 可通过本地 bootstrap 流程安装
+- 有 `universal/example-kb/` 作为真实示例
+- 有 `universal/evals/` 可用于接入验收
+- 主要面向支持本地文件读写和 shell 执行的 agent 环境
 
 它包含适合 GitHub 分发和跨 agent 接入的、平台中立版本。
 
