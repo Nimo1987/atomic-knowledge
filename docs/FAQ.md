@@ -128,6 +128,24 @@ Usually in ordinary language, for example:
 
 If your words already clearly mean “please record this”, the system treats that as authorization.
 
+### Do I need to learn words like `candidate` or `insight`?
+
+No.
+
+Those are internal workflow labels.
+
+In normal use, you should be able to say natural things such as:
+
+- `把这个链接收进去。`
+- `这个先记一下，先别当正式结论。`
+- `这个已经比较确定了，正式记下来。`
+- `把这个并到之前那个主题里。`
+- `整理一下知识库。`
+
+The system should map those plain-language requests onto the internal workflow for you.
+
+It should prefer the language you are already using in the conversation. If that is unclear, it should fall back to your system language or another stable language preference signal.
+
 ### What does the candidate layer do?
 
 It is a holding area for useful but not-yet-stable work memory.

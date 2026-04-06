@@ -42,6 +42,8 @@ The protocol is meant to feel low-interruption in normal chat, but the write bou
 - treat clear natural-language record intent as write authorization, for example `ingest this link`, `save this as a candidate`, `merge this into the project`, or `run maintenance`
 - ask explicitly before high-impact actions such as deletes, archiving, bulk cleanup, large restructures, or directory changes
 
+Users should not need to memorize protocol terms like `candidate` or `insight`. In normal chat, ordinary language in the current conversation should map to the same workflows, with system language as a fallback if needed.
+
 Summarizing a link, paper, or note is not the same as ingesting it.
 
 ## Why The Entry Pages Matter

@@ -87,6 +87,7 @@ Atomic Knowledge is meant to work inside an ordinary agent chat, but its autonom
 - ask explicitly before high-impact actions such as deletes, archiving, bulk cleanup, large restructures, or directory changes
 
 Summarizing or analyzing a link is not the same as ingesting it.
+Users should not need to memorize protocol terms like `candidate` or `insight`; ordinary language in the current conversation should be enough, with system language as a fallback if the conversation language is unclear.
 
 ## Quickstart
 

@@ -22,6 +22,9 @@ The normal model is:
 2. the agent recognizes when the message implies `ingest`, continuation, candidate capture, candidate resolution, or maintenance
 3. the agent performs the right filesystem-backed protocol actions with minimal interruption
 
+The protocol terms are internal. Users should not need to memorize words like `candidate` or `insight` in order to use the system.
+Prefer the user's current conversation language first. If that is unclear, fall back to the user's system language or another durable language preference signal.
+
 ## Autonomy Boundary
 
 Atomic Knowledge should feel low-interruption, but the autonomy boundary is intentionally conservative:
@@ -49,6 +52,27 @@ These are typical ways a normal user may trigger the protocol without using spec
 
 The key point is that the user is not talking to a new subsystem.
 They are just asking their usual agent to remember, continue, organize, and maintain shared work memory.
+
+## Chinese Plain-Language Aliases
+
+If the user is speaking Chinese, the agent should map ordinary Chinese phrases onto the same internal workflows. The same rule applies to any other language: prefer the language already used in the current conversation, and fall back to system language only when needed. The user should not need to say `candidate`, `insight`, `promote`, or `merge`.
+
+| 用户自然会说的话 | 内部应映射到什么 |
+| --- | --- |
+| `把这个链接收进去。` | `ingest` |
+| `继续我们上次聊的。` | continuation plus proactive knowledge consultation |
+| `这个先记一下，先别当正式结论。` | candidate capture |
+| `这个已经比较确定了，正式记下来。` | candidate resolution through `promote` or another durable writeback |
+| `把这个并到之前那个主题里。` | candidate resolution through `merge` |
+| `这个不成立了，先不要留着了。` | candidate resolution through `drop` |
+| `整理一下知识库。` | maintenance / lint |
+| `看看知识库健不健康。` | health check or lint |
+
+The practical rule is simple:
+
+- users should say the most natural thing in their own language
+- the agent should quietly map that onto the internal workflow
+- protocol words should appear only when they help explain what happened after the fact
 
 Not every strong statement inside the conversation is a write request. If the user is only discussing, summarizing, or analyzing something, the agent may suggest capture or maintenance, but it should not persist it yet.
 

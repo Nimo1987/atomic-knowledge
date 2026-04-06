@@ -60,6 +60,8 @@ The user should keep working in the same ordinary agent conversation.
 
 Do not require platform-specific slash commands, buttons, a separate knowledge-management mode, background services, or database assumptions.
 Interpret ordinary natural-language requests as workflow triggers when the intent is clear.
+Protocol words such as `candidate`, `insight`, `promote`, or `merge` are internal labels for the workflow. The user does not need to speak in that vocabulary.
+Prefer the language of the current conversation. If the conversation language is unclear, fall back to the user's system language or other durable language preference signals.
 
 ## Autonomy Policy
 
@@ -67,7 +69,7 @@ Use a conservative autonomy boundary:
 
 - Read proactively for session start, continuation, context recovery, retrieval, and lint freshness checks. This includes `wiki/active.md`, `wiki/recent.md`, `wiki/index.md`, relevant formal pages, relevant candidates when needed, and `meta/lint-status.json`.
 - Suggest without writing when the user has not expressed record intent. You may recommend ingest, candidate capture, promotion or merge, stale-candidate cleanup, or lint, but do not modify the knowledge base yet.
-- Treat clear natural-language record intent as write authorization. Requests such as `ingest this link`, `save this as a candidate`, `promote this candidate`, `merge this into the project`, `drop this note`, or `run maintenance` are sufficient consent to update the knowledge base.
+- Treat clear natural-language record intent as write authorization. Requests such as `ingest this link`, `save this as a candidate`, `promote this candidate`, `merge this into the project`, `drop this note`, `run maintenance`, `把这个链接收进去`, `这个先记一下，先别当正式结论`, `这个已经比较确定了，正式记下来`, `把这个并到之前那个主题里`, or `整理一下知识库` are sufficient consent to update the knowledge base.
 - Ask for explicit confirmation before high-impact operations such as deleting or archiving pages, bulk candidate cleanup, broad maintenance refactors, large reorganizations, or directory-structure changes.
 - Default conservative: do not write ordinary chat into the knowledge base, do not treat candidate notes as formal knowledge, and do not assume that summarizing a link means ingesting it.
 
@@ -83,6 +85,21 @@ Treat these as intent families, not exact string matches. They count as workflow
 - `run maintenance`, `do a maintenance pass`, or `lint the knowledge base`: run the lint workflow
 - `review open candidates`, `go through unresolved candidates`, or `clean up the candidate queue`: review `meta/candidates/` as a maintenance queue
 - `check whether this knowledge base is healthy`, `is this still clean`, or `how healthy is the knowledge base`: perform a focused health check or lint pass
+
+## Plain-Language Aliases By User Language
+
+Prefer ordinary phrasing in the language the user is already using in the current conversation. If that language is unclear, fall back to the user's system language. Do not require the user to know workflow terms like `candidate` or `insight`.
+
+- `把这个链接收进去`, `把这篇文章记进知识库`, `把这个内容存起来以后继续用`: run the ingest workflow
+- `继续我们上次聊的`, `先看看之前研究过什么`, `我们之前对这个有什么结论`: consult the knowledge base and continue the relevant thread
+- `这个先记一下`, `先存着`, `先别当正式结论`, `这个以后可能有用`: create or update a candidate note
+- `这个已经比较确定了`, `正式记下来`, `整理成正式结论`, `收进正式知识`: run candidate promotion or another durable writeback path
+- `把这个并到之前那个主题里`, `并进项目页`, `合并到之前那条结论里`: run candidate or page merge workflow
+- `这个不成立了`, `这个先不要留着了`, `把这个暂存想法去掉`: run candidate drop workflow, and ask explicitly if the request implies a delete or broader cleanup
+- `整理一下知识库`, `做一轮检查`, `清理一下`, `帮我过一遍现在的知识`: run the lint workflow
+- `看看知识库健不健康`, `现在干不干净`, `有没有该整理的`: perform a focused health check or lint pass
+
+Use protocol terms only when they help explain what happened after the action completes. The mapping principle is language-aware, not Chinese-only: follow the user's current language first.
 
 ## Default Execution And Clarification
 
