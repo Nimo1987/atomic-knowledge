@@ -8,7 +8,7 @@ Use this scenario to verify that the agent can ingest new material into an exist
 - The knowledge base already contains at least one active topic or project.
 - Prepare one new source that overlaps an existing thread.
 - The source can be a URL, article, paper, transcript, or local markdown file.
-- If you use `universal/example-kb/`, choose a new source about agent memory, work memory, retrieval discipline, or a closely related comparison. It should be different from `raw/sources/2026-04-04-mem0-overview.md`.
+- If you use `example-kb/`, choose a new source about agent memory, work memory, retrieval discipline, or a closely related comparison. It should be different from `raw/sources/2026-04-04-mem0-overview.md`.
 
 ## What The User Says In Chat
 
@@ -51,7 +51,7 @@ Read these first, in this order, and stop when the routing is clear:
 7. `meta/candidates/index.md` only if the new material may need provisional capture rather than immediate formal writeback
 8. existing related `raw/sources/*.md` only if comparison against earlier grounding is needed
 
-If you are using `universal/example-kb/`, the most likely first reads are:
+If you are using `example-kb/`, the most likely first reads are:
 
 - `wiki/active.md`
 - `wiki/recent.md`

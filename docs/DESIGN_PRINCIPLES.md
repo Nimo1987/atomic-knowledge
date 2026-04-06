@@ -52,13 +52,13 @@ Markdown is the primary knowledge format because it matches the goals of the pro
 - it works well with ordinary filesystem tools and version control
 - it keeps content and light structure together in one place
 
-The schemas in `universal/schemas/` already define the small amount of structure the pages need. Simple frontmatter plus markdown is enough for the current stage.
+The schemas in `schemas/` already define the small amount of structure the pages need. Simple frontmatter plus markdown is enough for the current stage.
 
 ## Why Not A Database As The Primary Storage Layer
 
 The current goal is a portable protocol, not a tightly coupled application stack.
 
-Making a database the primary substrate would add operational weight and reduce the portability that makes `universal/` useful across many agent systems. It would also make the mainline harder to inspect, copy, and evolve as a simple filesystem kit.
+Making a database the primary substrate would add operational weight and reduce the portability that makes this repository useful across many agent systems. It would also make the mainline harder to inspect, copy, and evolve as a simple filesystem kit.
 
 This does not rule out search indexes, caches, or database-backed tools later. It only means the database should be a derived or optional layer, not the source of truth.
 

@@ -7,7 +7,7 @@ Use this scenario to verify that the agent can recover prior work-memory context
 - The target agent already has the Atomic Knowledge protocol installed or adapted.
 - The knowledge base already contains an active project or reusable research thread.
 - The user asks a continuation, comparison, recommendation, tradeoff, or synthesis question that should benefit from prior work-memory context.
-- If you use `universal/example-kb/`, the natural topic is the boundary between compiled work memory and broader memory products.
+- If you use `example-kb/`, the natural topic is the boundary between compiled work memory and broader memory products.
 
 ## What The User Says In Chat
 
@@ -45,7 +45,7 @@ Read these first, in this order, and stop when the answer is grounded enough:
 6. the directly relevant `wiki/concepts/*.md` and `wiki/entities/*.md` only if needed
 7. relevant `meta/candidates/*.md` only if the formal wiki is still insufficient
 
-If you are using `universal/example-kb/`, the likely path is:
+If you are using `example-kb/`, the likely path is:
 
 - `wiki/active.md`
 - `wiki/recent.md`

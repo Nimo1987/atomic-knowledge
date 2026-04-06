@@ -103,7 +103,7 @@ cat > "$KB_DIR/wiki/log.md" <<EOF
 
 ## [$TODAY] init | Knowledge base initialized
 
-- Initialized with the Atomic Knowledge universal kit.
+- Initialized with the Atomic Knowledge root-level kit.
 - Created starter pages for active work, recent updates, candidates, and lint reports.
 EOF
 
@@ -154,7 +154,7 @@ EOF
 
 cat > "$KB_DIR/meta/lint-status.json" <<EOF
 {
-  "schema_version": "ak-universal-v1",
+  "schema_version": "ak-v1",
   "last_lint": null,
   "lint_count": 0,
   "last_ingest": null,

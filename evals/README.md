@@ -4,13 +4,13 @@ This directory provides a small acceptance suite for validating that an existing
 
 The suite assumes the following pieces already exist and are treated as the prerequisite baseline:
 
-- `universal/AGENT.md`
-- `universal/BOOTSTRAP_PROMPT.md`
-- `universal/docs/AGENT_NATIVE_USAGE.md`
-- `universal/docs/KNOWLEDGE_CONSULTATION.md`
-- `universal/docs/LINT_WORKFLOW.md`
-- `universal/docs/CANDIDATE_LIFECYCLE.md`
-- `universal/example-kb/`
+- `AGENT.md`
+- `BOOTSTRAP_PROMPT.md`
+- `docs/AGENT_NATIVE_USAGE.md`
+- `docs/KNOWLEDGE_CONSULTATION.md`
+- `docs/LINT_WORKFLOW.md`
+- `docs/CANDIDATE_LIFECYCLE.md`
+- `example-kb/`
 
 ## What This Suite Verifies
 
@@ -34,13 +34,13 @@ They are not UI automation tests, button-click scripts, or slash-command demos.
 You can run these scenarios against either:
 
 - your own installed knowledge base
-- `universal/example-kb/` as a small deterministic fixture
+- `example-kb/` as a small deterministic fixture
 
 If you use your own knowledge base, substitute equivalent pages for the example paths mentioned below.
 
 ## Example KB Mapping
 
-If you rehearse against `universal/example-kb/`, these are the closest built-in anchors:
+If you rehearse against `example-kb/`, these are the closest built-in anchors:
 
 - active project: `wiki/projects/agent-memory-boundary.md`
 - durable insight: `wiki/insights/candidates-should-stay-supplementary.md`

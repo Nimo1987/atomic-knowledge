@@ -6,7 +6,7 @@ Use this scenario to verify that the agent can perform a practical lint and cand
 
 - The target agent already has the Atomic Knowledge protocol installed or adapted.
 - The knowledge base already contains entry pages, formal pages, and at least one candidate or recent writeback to review.
-- If you use `universal/example-kb/`, the baseline maintenance artifacts are already present in `meta/lint-status.json`, `wiki/log.md`, and `meta/lint-reports/2026-04-06-example-maintenance-pass.md`.
+- If you use `example-kb/`, the baseline maintenance artifacts are already present in `meta/lint-status.json`, `wiki/log.md`, and `meta/lint-reports/2026-04-06-example-maintenance-pass.md`.
 - This scenario is especially useful when `last_lint` is older than 24 hours, several pages changed recently, or the user wants to rely on the knowledge base for a new synthesis or plan.
 
 ## What The User Says In Chat
@@ -47,7 +47,7 @@ Read these first, in this order:
 7. the relevant open `meta/candidates/*.md`
 8. prior lint reports only if they help compare what changed since the last maintenance pass
 
-If you are using `universal/example-kb/`, the likely first reads are:
+If you are using `example-kb/`, the likely first reads are:
 
 - `meta/lint-status.json`
 - `wiki/active.md`

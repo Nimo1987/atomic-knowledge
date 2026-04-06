@@ -1,8 +1,8 @@
 # Example KB Walkthrough
 
-Treat `universal/example-kb/` as a tiny finished knowledge base that has already been used for a few sessions.
+Treat `example-kb/` as a tiny finished knowledge base that has already been used for a few sessions.
 
-The point of this walkthrough is not to explain the whole protocol again. It is to show where to look first, what each page is doing, and how this example lines up with the acceptance scenarios in `universal/evals/`.
+The point of this walkthrough is not to explain the whole protocol again. It is to show where to look first, what each page is doing, and how this example lines up with the acceptance scenarios in `evals/`.
 
 ## Best First Read
 

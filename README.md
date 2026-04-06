@@ -60,11 +60,11 @@ It is not the best fit if you want:
 - a chat-only environment with no local file access or shell execution
 - a save-everything memory archive for all conversations
 
-## Mainline
+## Product Surface
 
-`universal/` is the mainline product surface for this repository.
+This repository itself is the installable, platform-neutral product surface.
 
-It contains the platform-neutral version intended for GitHub distribution and cross-agent use.
+The root directory is meant to be the GitHub-distributed kit for cross-agent use.
 
 ## Current Status
 
@@ -73,8 +73,8 @@ Atomic Knowledge is currently an early open-source release.
 Today it is:
 
 - installable through a local bootstrap flow
-- example-backed through `universal/example-kb/`
-- evaluable through `universal/evals/`
+- example-backed through `example-kb/`
+- evaluable through `evals/`
 - designed for agents that can read local files and run shell commands
 
 ## Autonomy Boundary
@@ -93,10 +93,10 @@ Summarizing or analyzing a link is not the same as ingesting it.
 ### Local install
 
 ```bash
-bash init.sh "$HOME/Desktop/My-Knowledge"
+bash scripts/init-kb.sh "$HOME/Desktop/My-Knowledge"
 ```
 
-`init.sh` is a thin convenience wrapper around `universal/scripts/init-kb.sh`.
+If you prefer a shorter alias, `init.sh` remains available as a convenience entrypoint.
 
 This creates a new knowledge base and generates:
 
@@ -111,21 +111,21 @@ Then do one of these:
 
 Atomic Knowledge plugs into your existing agent workflow. It does not add a separate app, dashboard, or command surface.
 
-See [Agent-Native Usage](universal/docs/AGENT_NATIVE_USAGE.md) for the expected in-chat behavior.
+See [Agent-Native Usage](docs/AGENT_NATIVE_USAGE.md) for the expected in-chat behavior.
 
 ### One-line bootstrap prompt
 
-Copy the prompt in `universal/BOOTSTRAP_PROMPT.md` into an agent that can read local files and run shell commands.
+Copy the prompt in `BOOTSTRAP_PROMPT.md` into an agent that can read local files and run shell commands.
 
 ## Start Here
 
-- [Universal Kit Guide](universal/README.md) for installation and the portable kit structure
-- [Agent-Native Usage](universal/docs/AGENT_NATIVE_USAGE.md) for how the protocol fits into an existing agent conversation
-- [Example Knowledge Base](universal/example-kb/) and [Walkthrough](universal/example-kb/WALKTHROUGH.md) for a small readable fixture and guided tour
-- [Eval Scenarios](universal/evals/README.md) for checking that an existing agent is actually integrated with the protocol
-- [Optional Local Health Check](universal/scripts/check-kb.sh) for a read-only KB structure and freshness check
-- [Candidate Lifecycle](universal/docs/CANDIDATE_LIFECYCLE.md) for how `meta/candidates/` moves through `open -> promoted | merged | dropped`
-- [Lint Workflow](universal/docs/LINT_WORKFLOW.md) for the maintenance loop that keeps the knowledge base clean and current
+- [Kit Guide](docs/KIT_GUIDE.md) for installation and the portable kit structure
+- [Agent-Native Usage](docs/AGENT_NATIVE_USAGE.md) for how the protocol fits into an existing agent conversation
+- [Example Knowledge Base](example-kb/) and [Walkthrough](example-kb/WALKTHROUGH.md) for a small readable fixture and guided tour
+- [Eval Scenarios](evals/README.md) for checking that an existing agent is actually integrated with the protocol
+- [Optional Local Health Check](scripts/check-kb.sh) for a read-only KB structure and freshness check
+- [Candidate Lifecycle](docs/CANDIDATE_LIFECYCLE.md) for how `meta/candidates/` moves through `open -> promoted | merged | dropped`
+- [Lint Workflow](docs/LINT_WORKFLOW.md) for the maintenance loop that keeps the knowledge base clean and current
 
 ## Core Idea
 
@@ -148,18 +148,20 @@ This creates accumulation instead of repeated rediscovery.
 
 ```text
 atomic-knowledge/
-├── init.sh                        # convenience wrapper for the universal initializer
-├── universal/                    # mainline, platform-neutral version
-│   ├── AGENT.md                  # portable agent protocol
-│   ├── BOOTSTRAP_PROMPT.md       # one-line install prompt for local-capable agents
-│   ├── README.md                 # universal kit guide
-│   ├── example-kb/               # small readable example knowledge base
-│   ├── schemas/                  # page schemas for all knowledge types
-│   ├── docs/                     # cross-agent integration notes
-│   ├── scripts/init-kb.sh        # canonical knowledge-base initializer
-│   └── knowledge-base-template/  # template copied into a user KB
-├── AGENTS.md                     # repository maintenance instructions
-└── README.md                     # repository overview
+├── AGENT.md                  # portable agent protocol
+├── BOOTSTRAP_PROMPT.md       # one-line install prompt for local-capable agents
+├── README.md                 # repository overview
+├── README.zh-CN.md           # Chinese overview
+├── docs/                     # guides and protocol notes
+├── evals/                    # agent integration acceptance scenarios
+├── example-kb/               # small readable example knowledge base
+├── schemas/                  # page schemas for all knowledge types
+├── scripts/                  # init and health-check helpers
+├── knowledge-base-template/  # template copied into a user KB
+├── init.sh                   # optional convenience alias for the canonical initializer
+├── CONTRIBUTING.md           # contributor guidance
+├── AGENTS.md                 # repository maintenance instructions
+└── LICENSE
 ```
 
 ## Knowledge Model
@@ -227,11 +229,11 @@ It keeps the knowledge base usable over time by:
 
 The agent may suggest maintenance proactively, but executing it is still a writeback workflow unless the user asked for it.
 
-See [Lint Workflow](universal/docs/LINT_WORKFLOW.md) for the maintenance loop and [Candidate Lifecycle](universal/docs/CANDIDATE_LIFECYCLE.md) for candidate resolution rules.
+See [Lint Workflow](docs/LINT_WORKFLOW.md) for the maintenance loop and [Candidate Lifecycle](docs/CANDIDATE_LIFECYCLE.md) for candidate resolution rules.
 
 ## Cross-Agent Design
 
-The universal kit is designed to work across different agent platforms.
+The root-level kit is designed to work across different agent platforms.
 
 The integration pattern is simple:
 
@@ -240,7 +242,7 @@ The integration pattern is simple:
 3. install that protocol wherever the agent platform stores persistent instructions
 4. if the platform cannot persist instructions, use the file as a startup protocol
 
-See `universal/docs/PLATFORM_INTEGRATION.md` for the integration model.
+See `docs/PLATFORM_INTEGRATION.md` for the integration model.
 
 ## Why Markdown
 

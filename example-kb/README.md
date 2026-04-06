@@ -36,7 +36,7 @@ Use these pages as the main anchors for common workflows:
 - `candidate resolution`: start with [meta/candidates/index.md](meta/candidates/index.md), then the target candidate note and its destination formal page
 - `maintenance`: start with `meta/lint-status.json`, then review `wiki/active.md`, `wiki/recent.md`, `wiki/index.md`, the relevant formal pages, and the candidate queue
 
-## Use With `universal/evals/`
+## Use With `evals/`
 
 This example is the easiest fixture for rehearsing the acceptance scenarios in [../evals/](../evals/):
 

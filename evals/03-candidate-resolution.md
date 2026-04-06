@@ -9,7 +9,7 @@ This scenario uses `merge` as the concrete outcome because it tests whether the 
 - The target agent already has the Atomic Knowledge protocol installed or adapted.
 - The knowledge base already contains at least one open candidate linked to a live topic.
 - The user already knows which existing formal page should absorb the durable part.
-- If you use `universal/example-kb/`, the built-in open candidate is `meta/candidates/candidate-promotion-needs-a-second-anchor.md`, and the natural destination page is `wiki/projects/agent-memory-boundary.md`.
+- If you use `example-kb/`, the built-in open candidate is `meta/candidates/candidate-promotion-needs-a-second-anchor.md`, and the natural destination page is `wiki/projects/agent-memory-boundary.md`.
 
 ## What The User Says In Chat
 
@@ -47,7 +47,7 @@ Read these first, in this order:
 5. the destination `wiki/projects/*.md` or other target formal page
 6. any directly related `wiki/insights/*.md`, `wiki/concepts/*.md`, or `wiki/entities/*.md` needed to check for overlap and avoid duplication
 
-If you are using `universal/example-kb/`, the likely first reads are:
+If you are using `example-kb/`, the likely first reads are:
 
 - `meta/candidates/index.md`
 - `meta/candidates/candidate-promotion-needs-a-second-anchor.md`

@@ -6,20 +6,20 @@ It is not the end-user install artifact.
 
 ## Source of Truth
 
-- `universal/` is the mainline product surface
+- the repository root is the mainline product surface
 - prefer evolving the platform-neutral protocol before adding any platform-specific packaging
 
 ## Editing Priorities
 
 1. Keep the main concept platform-neutral.
-2. Treat `universal/AGENT.md` as the canonical portable protocol.
+2. Treat root `AGENT.md` as the canonical portable protocol.
 3. Avoid reintroducing platform-specific assumptions into the mainline docs.
 4. Prefer a self-contained filesystem-based protocol over platform-specific glue.
 
 ## Documentation Rules
 
-- Root `README.md` should describe the universal mainline first.
-- Universal docs should explain cross-agent behavior, not only one platform.
+- Root `README.md` should describe the platform-neutral mainline first.
+- Root `docs/` should explain cross-agent behavior, not only one platform.
 - Installation instructions should assume the repository itself is the GitHub-distributed product.
 
 ## Knowledge Model

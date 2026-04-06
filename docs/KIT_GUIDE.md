@@ -1,6 +1,6 @@
-# Universal Kit
+# Kit Guide
 
-This directory is the platform-neutral starter kit for Atomic Knowledge.
+This repository is the platform-neutral starter kit for Atomic Knowledge.
 
 It is the portable protocol layer: a rendered `AGENT.md`, a markdown knowledge-base template, canonical schemas, and setup scripts that can work across agent systems.
 It is meant to plug into an existing agent workflow, not to introduce a separate UI, dashboard, or command layer.
@@ -31,7 +31,7 @@ The public kit is built around three recurring workflows:
 - `query`: recover context through `active -> recent -> index -> relevant formal pages`
 - `maintenance`: run lint, review candidate notes, and resolve them through `open -> promoted | merged | dropped`
 
-See [docs/LINT_WORKFLOW.md](docs/LINT_WORKFLOW.md) for the maintenance loop and [docs/CANDIDATE_LIFECYCLE.md](docs/CANDIDATE_LIFECYCLE.md) for candidate review and resolution.
+See [LINT_WORKFLOW.md](LINT_WORKFLOW.md) for the maintenance loop and [CANDIDATE_LIFECYCLE.md](CANDIDATE_LIFECYCLE.md) for candidate review and resolution.
 
 ## Autonomy Boundary
 
@@ -62,9 +62,9 @@ This kit is intentionally markdown-first.
 
 Markdown pages are the primary knowledge layer because they are portable, inspectable, editable by both users and agents, and easy to keep under version control. Small global metadata files such as `meta/lint-status.json` are fine, but the source of truth stays in the markdown knowledge base.
 
-For the current stage, the protocol does not make a database the primary storage layer, and it does not require a sidecar JSON file for every page. That keeps the system simpler, more portable, and less fragile when the user edits knowledge directly. See `docs/DESIGN_PRINCIPLES.md` for the rationale.
+For the current stage, the protocol does not make a database the primary storage layer, and it does not require a sidecar JSON file for every page. That keeps the system simpler, more portable, and less fragile when the user edits knowledge directly. See `DESIGN_PRINCIPLES.md` for the rationale.
 
-## What This Layer Contains
+## What This Repository Contains
 
 - `AGENT.md`: a platform-neutral protocol file for persistent agent instructions
 - `docs/AGENT_NATIVE_USAGE.md`: how the protocol should behave inside an existing agent conversation
@@ -82,7 +82,7 @@ For the current stage, the protocol does not make a database the primary storage
 Run:
 
 ```bash
-bash universal/scripts/init-kb.sh "$HOME/Desktop/My-Knowledge"
+bash scripts/init-kb.sh "$HOME/Desktop/My-Knowledge"
 ```
 
 This creates a knowledge base at the target path and generates a concrete `AGENT.md` inside it.
@@ -101,12 +101,12 @@ After that:
 2. Put its contents into the persistent instruction surface your agent platform supports.
 3. If your platform does not support persistent instructions, tell the agent to read that file at the start of each new session.
 
-This kit extends the agent you already use. See [docs/AGENT_NATIVE_USAGE.md](docs/AGENT_NATIVE_USAGE.md) for the expected low-interruption behavior in normal chat.
+This kit extends the agent you already use. See [AGENT_NATIVE_USAGE.md](AGENT_NATIVE_USAGE.md) for the expected low-interruption behavior in normal chat.
 
 Optional read-only health check:
 
 ```bash
-bash universal/scripts/check-kb.sh "$HOME/Desktop/My-Knowledge"
+bash scripts/check-kb.sh "$HOME/Desktop/My-Knowledge"
 ```
 
 The helper accepts `YYYY-MM-DD`, `YYYY-MM-DDTHH:MM:SSZ`, and ISO 8601 timestamps with explicit UTC offsets in `meta/lint-status.json`.
@@ -119,17 +119,17 @@ git init "$HOME/Desktop/My-Knowledge"
 
 ## Further Reading
 
-- [docs/AGENT_NATIVE_USAGE.md](docs/AGENT_NATIVE_USAGE.md) for the agent-native, no-new-UI usage model
-- [docs/PLATFORM_INTEGRATION.md](docs/PLATFORM_INTEGRATION.md) for the cross-agent integration model
-- [docs/GOLDEN_PATH.md](docs/GOLDEN_PATH.md) for the end-to-end example flow
-- [docs/KNOWLEDGE_CONSULTATION.md](docs/KNOWLEDGE_CONSULTATION.md) for retrieval triggers and lookup order
-- [docs/LINT_WORKFLOW.md](docs/LINT_WORKFLOW.md) for maintenance and lint behavior
-- [docs/CANDIDATE_LIFECYCLE.md](docs/CANDIDATE_LIFECYCLE.md) for candidate intake, review, and resolution
-- [docs/DESIGN_PRINCIPLES.md](docs/DESIGN_PRINCIPLES.md) for the main design tradeoffs
-- [example-kb/](example-kb/) for a directly readable example knowledge base
-- [example-kb/WALKTHROUGH.md](example-kb/WALKTHROUGH.md) for the fastest guided tour through the example KB
-- [evals/README.md](evals/README.md) for the acceptance scenarios that validate a real agent integration
-- [BOOTSTRAP_PROMPT.md](BOOTSTRAP_PROMPT.md) for a one-shot setup prompt
+- [AGENT_NATIVE_USAGE.md](AGENT_NATIVE_USAGE.md) for the agent-native, no-new-UI usage model
+- [PLATFORM_INTEGRATION.md](PLATFORM_INTEGRATION.md) for the cross-agent integration model
+- [GOLDEN_PATH.md](GOLDEN_PATH.md) for the end-to-end example flow
+- [KNOWLEDGE_CONSULTATION.md](KNOWLEDGE_CONSULTATION.md) for retrieval triggers and lookup order
+- [LINT_WORKFLOW.md](LINT_WORKFLOW.md) for maintenance and lint behavior
+- [CANDIDATE_LIFECYCLE.md](CANDIDATE_LIFECYCLE.md) for candidate intake, review, and resolution
+- [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md) for the main design tradeoffs
+- [../example-kb/](../example-kb/) for a directly readable example knowledge base
+- [../example-kb/WALKTHROUGH.md](../example-kb/WALKTHROUGH.md) for the fastest guided tour through the example KB
+- [../evals/README.md](../evals/README.md) for the acceptance scenarios that validate a real agent integration
+- [../BOOTSTRAP_PROMPT.md](../BOOTSTRAP_PROMPT.md) for a one-shot setup prompt
 
 ## Recommended Mental Model
 

@@ -23,7 +23,7 @@ The platform wrapper should preserve the same work-memory behavior everywhere:
 
 ## Preferred Installation Pattern
 
-1. Run `bash universal/scripts/init-kb.sh <path>`.
+1. Run `bash scripts/init-kb.sh <path>`.
 2. Generate `<path>/AGENT.md` with the real knowledge-base path.
 3. Install that file into the agent platform's instruction surface.
 4. Ensure the platform keeps the retrieval order defined in `AGENT.md`: `active -> recent -> index -> project -> insight -> concept/entity -> candidate`.
@@ -79,7 +79,7 @@ For simple syntax, API, execution, or immediate debugging tasks, the platform do
 
 The repository separates:
 
-- `universal/` - core protocol and template
+- repository-root protocol kit - core protocol, template, scripts, schemas, examples, and evals
 - optional platform wrappers - convenience layers outside the core protocol
 
 Platform-specific wrappers may exist, but they should not redefine the conceptual model.
