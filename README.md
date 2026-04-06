@@ -120,6 +120,8 @@ Copy the prompt in `BOOTSTRAP_PROMPT.md` into an agent that can read local files
 ## Start Here
 
 - [Kit Guide](docs/KIT_GUIDE.md) for installation and the portable kit structure
+- [Comparison](docs/COMPARISON.md) for the difference between Atomic Knowledge, memory plugins, RAG, and chat history
+- [Use Cases and FAQ](docs/FAQ.md) for a simpler non-technical explanation of who it is for and how to use it
 - [Agent-Native Usage](docs/AGENT_NATIVE_USAGE.md) for how the protocol fits into an existing agent conversation
 - [Example Knowledge Base](example-kb/) and [Walkthrough](example-kb/WALKTHROUGH.md) for a small readable fixture and guided tour
 - [Eval Scenarios](evals/README.md) for checking that an existing agent is actually integrated with the protocol

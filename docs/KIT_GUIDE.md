@@ -120,6 +120,8 @@ git init "$HOME/Desktop/My-Knowledge"
 ## Further Reading
 
 - [AGENT_NATIVE_USAGE.md](AGENT_NATIVE_USAGE.md) for the agent-native, no-new-UI usage model
+- [COMPARISON.md](COMPARISON.md) for the difference between Atomic Knowledge, memory plugins, RAG, and chat history
+- [FAQ.md](FAQ.md) for use cases and plain-language answers to common first-user questions
 - [PLATFORM_INTEGRATION.md](PLATFORM_INTEGRATION.md) for the cross-agent integration model
 - [GOLDEN_PATH.md](GOLDEN_PATH.md) for the end-to-end example flow
 - [KNOWLEDGE_CONSULTATION.md](KNOWLEDGE_CONSULTATION.md) for retrieval triggers and lookup order
