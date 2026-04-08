@@ -8,6 +8,7 @@
 
 | Date | Report | Scope | Follow-Up |
 |------|--------|-------|-----------|
+| 2026-04-09 | [Runtime and release baseline refresh](2026-04-09-runtime-and-release-baseline-refresh.md) | entry-pages-candidates-and-fixture-health | Re-run after the next new source, candidate resolution, or release baseline change. |
 | 2026-04-06 | [Example maintenance pass](2026-04-06-example-maintenance-pass.md) | entry-pages-and-candidates | Revisit the open promotion rule after the next source or formal-page change. |
 
 ## Review Notes

@@ -4,6 +4,8 @@
 
 Atomic Knowledge is a platform-neutral protocol for building agent-maintained work memory in markdown.
 
+It is chat-native: the normal entry point is still an ordinary natural-language conversation with an agent, backed by a markdown knowledge base rather than a separate command surface.
+
 It is inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of rediscovering knowledge from raw documents on every question, an agent incrementally maintains a persistent, interlinked markdown wiki.
 
 Use your existing agent, but give it a maintained markdown work-memory layer that survives session resets and can be reused across future research threads.
@@ -70,12 +72,36 @@ The root directory is meant to be the GitHub-distributed kit for cross-agent use
 
 Atomic Knowledge is currently an early open-source release.
 
+The current repository baseline corresponds to `v0.2.0`.
+
 Today it is:
 
 - installable through a local bootstrap flow
 - example-backed through `example-kb/`
 - evaluable through `evals/`
+- includes an optional agent-facing runtime for `init_kb`, `check_kb`, `get_context`, and `validate_kb`
+- includes a minimal MCP adapter for tool-calling agent integrations
 - designed for agents that can read local files and run shell commands
+
+## Optional Agent Runtime
+
+Atomic Knowledge remains platform-neutral, chat-native, and markdown-first. The ordinary user entry point is still chat with an agent, not a CLI or MCP workflow.
+
+This repository also includes:
+
+- an optional agent-facing runtime for bounded mechanical knowledge-base actions
+- a minimal MCP adapter for agent integration and tool calling
+
+These are execution layers for agents, not the primary product surface. Ordinary users do not need to learn a CLI or MCP vocabulary to use Atomic Knowledge normally.
+
+For the current direction and boundaries, see:
+
+- [Agent Runtime Direction](docs/AGENT_RUNTIME_DIRECTION.md)
+- [Runtime Boundary](docs/RUNTIME_BOUNDARY.md)
+- [Chat-Native Journeys](docs/CHAT_NATIVE_JOURNEYS.md)
+- [MCP Tool Contracts](docs/MCP_TOOL_CONTRACTS.md)
+- [Runtime README](runtime/README.md)
+- [MCP Adapter README](adapters/mcp/README.md)
 
 ## Autonomy Boundary
 
@@ -91,7 +117,19 @@ Users should not need to memorize protocol terms like `candidate` or `insight`; 
 
 ## Quickstart
 
-### Local install
+Most users should start in chat and let the agent handle the bootstrap. The normal entry point is still an ordinary conversation, not a CLI, runtime, or MCP workflow.
+
+### Chat-native bootstrap
+
+For most users, the simplest start is `BOOTSTRAP_PROMPT.md`.
+
+Paste that prompt into an agent that can read local files and run shell commands, and let the agent initialize Atomic Knowledge for you.
+
+After setup, stay in the same chat and keep using Atomic Knowledge through normal language. You do not need to learn CLI commands, MCP, or runtime details.
+
+### Local helper
+
+If you want to invoke the repository helper directly in a local-capable environment, the canonical initializer is:
 
 ```bash
 bash scripts/init-kb.sh "$HOME/Desktop/My-Knowledge"
@@ -110,13 +148,9 @@ Then do one of these:
 1. Put that file into your agent platform's persistent instruction surface.
 2. If your platform has no persistent instruction surface, tell the agent to read that file at the start of each session.
 
-Atomic Knowledge plugs into your existing agent workflow. It does not add a separate app, dashboard, or command surface.
+This command is a repository helper, not the main user entry point. Atomic Knowledge still plugs into your existing agent workflow and does not add a separate app, dashboard, or command surface.
 
 See [Agent-Native Usage](docs/AGENT_NATIVE_USAGE.md) for the expected in-chat behavior.
-
-### One-line bootstrap prompt
-
-Copy the prompt in `BOOTSTRAP_PROMPT.md` into an agent that can read local files and run shell commands.
 
 ## Start Here
 
@@ -152,7 +186,8 @@ This creates accumulation instead of repeated rediscovery.
 ```text
 atomic-knowledge/
 ├── AGENT.md                  # portable agent protocol
-├── BOOTSTRAP_PROMPT.md       # one-line install prompt for local-capable agents
+├── adapters/                 # optional agent integration surfaces
+├── BOOTSTRAP_PROMPT.md       # one-step bootstrap prompt for local-capable agents
 ├── README.md                 # repository overview
 ├── README.zh-CN.md           # Chinese overview
 ├── docs/                     # guides and protocol notes
@@ -162,6 +197,7 @@ atomic-knowledge/
 ├── scripts/                  # init and health-check helpers
 ├── knowledge-base-template/  # template copied into a user KB
 ├── init.sh                   # optional convenience alias for the canonical initializer
+├── runtime/                  # optional internal runtime for bounded KB actions
 ├── CONTRIBUTING.md           # contributor guidance
 ├── AGENTS.md                 # repository maintenance instructions
 └── LICENSE
