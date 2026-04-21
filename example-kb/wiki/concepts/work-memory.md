@@ -9,11 +9,18 @@ tags:
   - research
 status: active
 created: 2026-04-04
-updated: 2026-04-05
+updated: 2026-04-21
+search_anchors:
+  - compiled work memory
+  - durable research context
+key_entities:
+  - Atomic Knowledge
+  - Mem0
 related_pages:
   - wiki/projects/agent-memory-boundary.md
   - wiki/insights/candidates-should-stay-supplementary.md
   - wiki/entities/mem0.md
+  - wiki/procedures/filesystem-first-query-flow.md
 sources:
   - path: raw/sources/2026-04-04-mem0-overview.md
     date: 2026-04-04
@@ -44,5 +51,6 @@ Do not treat something as work memory when it is only:
 ## Related Pages
 
 - [Agent Memory Boundary](../projects/agent-memory-boundary.md)
+- [Filesystem-First Query Flow](../procedures/filesystem-first-query-flow.md)
 - [Candidates Should Stay Supplementary](../insights/candidates-should-stay-supplementary.md)
 - [Mem0](../entities/mem0.md)

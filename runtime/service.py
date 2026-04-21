@@ -19,6 +19,7 @@ ENTRY_FILE_PATHS = (
 
 OPTIONAL_AREA_PATHS = (
     Path("wiki/projects"),
+    Path("wiki/procedures"),
     Path("wiki/insights"),
     Path("wiki/concepts"),
     Path("wiki/entities"),
@@ -37,6 +38,7 @@ VALIDATE_DIRECTORY_PATHS = (
     Path("wiki/concepts"),
     Path("wiki/entities"),
     Path("wiki/projects"),
+    Path("wiki/procedures"),
     Path("wiki/insights"),
     Path("meta/candidates"),
 )
@@ -226,10 +228,15 @@ class AtomicKnowledgeRuntime:
             available_files = [
                 child.relative_to(kb_path).as_posix() for child in area_files
             ]
+            file_hints = [
+                self._build_file_hint_payload(child.relative_to(kb_path), child)
+                for child in area_files
+            ]
             optional_areas.append(
                 {
                     "path": relative_path.as_posix(),
                     "available_files": available_files,
+                    "file_hints": file_hints,
                 }
             )
 
@@ -353,9 +360,30 @@ class AtomicKnowledgeRuntime:
         yield from sorted(set(relative_paths))
 
     def _frontmatter_status(self, file_path: Path) -> str:
+        lines = self._frontmatter_lines(file_path)
+        if lines is None:
+            return "missing"
+        if lines is False:
+            return "unclosed"
+        frontmatter_lines = lines
+        if any(FRONTMATTER_NAME_PATTERN.match(line) for line in frontmatter_lines):
+            return "ok"
+
+        return "missing_name"
+
+    def _build_file_hint_payload(
+        self, relative_path: Path, file_path: Path
+    ) -> dict[str, object]:
+        return {
+            "path": relative_path.as_posix(),
+            "search_anchors": self._frontmatter_list(file_path, "search_anchors"),
+            "key_entities": self._frontmatter_list(file_path, "key_entities"),
+        }
+
+    def _frontmatter_lines(self, file_path: Path) -> list[str] | bool | None:
         lines = file_path.read_text(encoding="utf-8").splitlines()
         if not lines or lines[0].strip() != "---":
-            return "missing"
+            return None
 
         closing_index = None
         for index, line in enumerate(lines[1:], start=1):
@@ -364,13 +392,54 @@ class AtomicKnowledgeRuntime:
                 break
 
         if closing_index is None:
-            return "unclosed"
+            return False
 
-        frontmatter_lines = lines[1:closing_index]
-        if any(FRONTMATTER_NAME_PATTERN.match(line) for line in frontmatter_lines):
-            return "ok"
+        return lines[1:closing_index]
 
-        return "missing_name"
+    def _frontmatter_list(self, file_path: Path, key: str) -> list[str]:
+        frontmatter_lines = self._frontmatter_lines(file_path)
+        if not isinstance(frontmatter_lines, list):
+            return []
+
+        values: list[str] = []
+        key_prefix = f"{key}:"
+        collecting = False
+
+        for line in frontmatter_lines:
+            stripped = line.strip()
+
+            if not collecting:
+                if not stripped.startswith(key_prefix):
+                    continue
+
+                collecting = True
+                remainder = stripped[len(key_prefix) :].strip()
+                if not remainder or remainder == "[]":
+                    continue
+
+                if remainder.startswith("[") and remainder.endswith("]"):
+                    inline_items = [
+                        item.strip().strip("'\"")
+                        for item in remainder[1:-1].split(",")
+                        if item.strip()
+                    ]
+                    values.extend(inline_items)
+                    break
+
+                values.append(remainder.strip("'\""))
+                continue
+
+            if stripped.startswith("- "):
+                values.append(stripped[2:].strip().strip("'\""))
+                continue
+
+            if not stripped:
+                continue
+
+            if re.match(r"^[A-Za-z0-9_-]+\s*:", stripped):
+                break
+
+        return values
 
     def _build_validation_summary(
         self, checked_files_count: int, warning_count: int, issue_count: int

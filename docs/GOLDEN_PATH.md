@@ -118,10 +118,11 @@ Before broad search, the agent follows the normal retrieval order:
 That quickly surfaces:
 
 - the still-active project `wiki/projects/agent-memory-boundary.md`
+- the reusable query procedure `wiki/procedures/filesystem-first-query-flow.md`
 - the recently added insight `wiki/insights/candidates-should-stay-supplementary.md`
 - any related sources or pages already linked from the index
 
-Only then does the agent read the detailed project and insight pages it actually needs.
+Only then does the agent read the detailed project, procedure, and insight pages it actually needs.
 
 ### 7. The agent continues from compiled knowledge
 
@@ -141,7 +142,7 @@ That is the real product behavior: future work begins from `what we have already
 The loop above usually touches these layers in order:
 
 1. `raw/sources/` for source capture
-2. `wiki/projects/` and possibly `wiki/insights/` for formal work-memory updates
+2. `wiki/projects/`, `wiki/procedures/`, and possibly `wiki/insights/` for formal work-memory updates
 3. `meta/candidates/` for provisional but valuable judgments
 4. `wiki/active.md`, `wiki/recent.md`, and `wiki/index.md` as the retrieval entry points for later sessions
 

@@ -23,9 +23,15 @@ tags:
 status: active
 created: 2026-04-06
 updated: 2026-04-06
+search_anchors:
+  - compiled work memory
+  - durable research context
+key_entities:
+  - Atomic Knowledge
+  - Mem0
 related_pages:
   - wiki/projects/agent-memory-boundary.md
-  - wiki/insights/rag-needs-maintenance.md
+  - wiki/insights/candidates-should-stay-supplementary.md
 sources:
   - path: raw/sources/rag-overview.md
     date: 2026-04-06
@@ -35,6 +41,8 @@ sources:
 ## Field Notes
 
 - `aliases`: alternate names worth searching or linking, not every casual synonym
+- `search_anchors`: short search-like phrases that should help this page surface during retrieval
+- `key_entities`: the named things most likely to co-occur with this concept in real queries
 - `related_pages`: a short list of the most relevant connected pages, not a full graph
 - `updated`: change this when the concept meaning, framing, or key links change
 
@@ -55,5 +63,6 @@ sources:
 ## Related Pages
 
 - [[agent-memory-boundary]] - where this concept matters now
-- [[rag-needs-maintenance]] - durable takeaway that depends on it
+- [[candidates-should-stay-supplementary]] - durable takeaway that depends on it
+- [[mem0]] - comparison entity that sharpens the boundary
 ```

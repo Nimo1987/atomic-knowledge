@@ -8,8 +8,14 @@ tags:
   - maintenance
 status: active
 created: 2026-04-05
-updated: 2026-04-05
+updated: 2026-04-21
 confidence: high
+search_anchors:
+  - candidate buffer
+  - retrieval rule
+key_entities:
+  - Atomic Knowledge
+  - Mem0
 sources:
   - path: raw/sources/2026-04-04-mem0-overview.md
     date: 2026-04-04
@@ -33,6 +39,7 @@ Candidate notes are a buffer for provisional work memory. They should help recov
 
 - If candidates become first-class truth, the system slides back toward an uncontrolled archive.
 - Entry pages stay useful only when they point first to settled project and insight pages.
+- Procedure pages stay useful only when they point to settled project and insight pages instead of taking candidate notes as the truth layer.
 - The candidate layer works best as a review queue that catches valuable sparks without polluting the formal wiki too early.
 
 ## Evidence
@@ -49,5 +56,6 @@ Candidate notes are a buffer for provisional work memory. They should help recov
 ## Related Pages
 
 - [Agent Memory Boundary](../projects/agent-memory-boundary.md)
+- [Filesystem-First Query Flow](../procedures/filesystem-first-query-flow.md)
 - [Work Memory](../concepts/work-memory.md)
 - [Candidate: Candidates Should Stay Supplementary](../../meta/candidates/candidate-candidates-should-stay-supplementary.md)

@@ -12,6 +12,14 @@ ENTRY_FILES = [
     "wiki/recent.md",
     "wiki/index.md",
 ]
+OPTIONAL_AREA_PATHS = {
+    "wiki/projects",
+    "wiki/procedures",
+    "wiki/insights",
+    "wiki/concepts",
+    "wiki/entities",
+    "meta/candidates",
+}
 
 
 class RuntimeActionTests(unittest.TestCase):
@@ -27,6 +35,7 @@ class RuntimeActionTests(unittest.TestCase):
             self.assertIn("kb_path", result.data)
             self.assertTrue((kb_path / "AGENT.md").is_file())
             self.assertTrue((kb_path / "wiki/active.md").is_file())
+            self.assertTrue((kb_path / "wiki/procedures").is_dir())
             self.assertTrue((kb_path / "meta/lint-status.json").is_file())
 
     def test_check_kb_succeeds_for_initialized_kb(self) -> None:
@@ -59,6 +68,22 @@ class RuntimeActionTests(unittest.TestCase):
         self.assertEqual(result.action, "get_context")
         for relative_path in ENTRY_FILES:
             self.assertIn(relative_path, result.data["recommended_files"])
+
+        optional_paths = {item["path"] for item in result.data["optional_areas"]}
+        self.assertTrue(OPTIONAL_AREA_PATHS.issubset(optional_paths))
+
+        procedure_area = next(
+            item
+            for item in result.data["optional_areas"]
+            if item["path"] == "wiki/procedures"
+        )
+        procedure_hint = next(
+            item
+            for item in procedure_area["file_hints"]
+            if item["path"] == "wiki/procedures/filesystem-first-query-flow.md"
+        )
+        self.assertIn("retrieval order", procedure_hint["search_anchors"])
+        self.assertIn("Atomic Knowledge", procedure_hint["key_entities"])
 
     def test_get_context_reports_missing_entry_files_for_empty_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

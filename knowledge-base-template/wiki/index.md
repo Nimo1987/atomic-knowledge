@@ -1,7 +1,7 @@
 # Knowledge Base Index
 
 > Last updated: YYYY-MM-DD
-> Start with `wiki/active.md` and `wiki/recent.md` for current context. Use this page as the broader catalog. Check `meta/candidates/index.md` only for provisional follow-up leads.
+> Start with `wiki/active.md` and `wiki/recent.md` for current context. Use this page as the broader catalog. When multiple formal pages look close, use page-level `search_anchors` and `key_entities` hints to narrow the read set. Check `meta/candidates/index.md` only for provisional follow-up leads.
 
 ## Entry Pages
 
@@ -9,6 +9,10 @@
 - `recent.md`: newest additions, updates, corrections, and supersessions
 
 ## Projects
+
+(none)
+
+## Procedures
 
 (none)
 

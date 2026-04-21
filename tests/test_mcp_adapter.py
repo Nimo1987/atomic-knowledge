@@ -93,6 +93,18 @@ class MCPAdapterTests(unittest.TestCase):
         self.assertFalse(result["isError"])
         self.assertEqual(payload["action"], "get_context")
         self.assertTrue(payload["success"])
+        procedure_area = next(
+            item
+            for item in payload["data"]["optional_areas"]
+            if item["path"] == "wiki/procedures"
+        )
+        procedure_hint = next(
+            item
+            for item in procedure_area["file_hints"]
+            if item["path"] == "wiki/procedures/filesystem-first-query-flow.md"
+        )
+        self.assertIn("retrieval order", procedure_hint["search_anchors"])
+        self.assertIn("Atomic Knowledge", procedure_hint["key_entities"])
 
     def test_tools_call_init_kb_creates_expected_files(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -114,6 +126,7 @@ class MCPAdapterTests(unittest.TestCase):
             self.assertTrue(payload["success"])
             self.assertTrue((kb_path / "AGENT.md").is_file())
             self.assertTrue((kb_path / "wiki/active.md").is_file())
+            self.assertTrue((kb_path / "wiki/procedures").is_dir())
 
     def test_tools_call_check_kb_returns_runtime_payload(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

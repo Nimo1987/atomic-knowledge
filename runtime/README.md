@@ -21,7 +21,7 @@ The markdown knowledge base remains the source of truth. The runtime only helps 
 Current implemented actions:
 - `init_kb` initializes a knowledge base by delegating to `scripts/init-kb.sh`
 - `check_kb` runs the existing health check through `scripts/check-kb.sh`
-- `get_context` returns a stable recommended read set from entry pages and known optional areas
+- `get_context` returns a stable recommended read set from entry pages and known optional areas, including page-level `search_anchors` and `key_entities` hints when present
 - `validate_kb` performs lightweight structural validation for required files, directories, and markdown frontmatter
 
 There is no CLI-first surface here. Agent hosts may call the runtime directly in code or through the optional MCP adapter in [`../adapters/mcp/`](../adapters/mcp/).

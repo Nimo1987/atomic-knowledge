@@ -2,7 +2,7 @@
 
 > Read this first for the current projects, live comparisons, and open questions.
 
-> Last updated: 2026-04-06
+> Last updated: 2026-04-21
 
 ## Active Projects
 
@@ -15,4 +15,4 @@
 ## Open Questions
 
 - Should candidate promotion require a second formal anchor before a new standalone insight is created? See [Candidate: Promotion Needs a Second Anchor](../meta/candidates/candidate-promotion-needs-a-second-anchor.md).
-- How much explicit `mem0` comparison should remain in the core project before it becomes repetitive instead of clarifying?
+- How many `search_anchors` should a small page keep before retrieval hints become noisy instead of useful?

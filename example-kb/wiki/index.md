@@ -1,7 +1,7 @@
 # Knowledge Base Index
 
-> Last updated: 2026-04-06
-> Start with `wiki/active.md` and `wiki/recent.md` for current context. Use this page as the broader catalog. Check `meta/candidates/index.md` only for provisional follow-up leads.
+> Last updated: 2026-04-21
+> Start with `wiki/active.md` and `wiki/recent.md` for current context. Use this page as the broader catalog. When multiple formal pages look close, use page-level `search_anchors` and `key_entities` hints to narrow the read set. Check `meta/candidates/index.md` only for provisional follow-up leads.
 
 ## Entry Pages
 
@@ -11,6 +11,10 @@
 ## Projects
 
 - [Agent Memory Boundary](projects/agent-memory-boundary.md): the active thread defining what this system should store, what it should not store, and how candidate notes should behave.
+
+## Procedures
+
+- [Filesystem-First Query Flow](procedures/filesystem-first-query-flow.md): reusable playbook for `continue our earlier topic` style lookup that keeps entry pages first and candidates last.
 
 ## Concepts
 
@@ -33,4 +37,4 @@
 
 | File | Date | Related Pages |
 |------|------|---------------|
-| [2026-04-04-mem0-overview.md](../raw/sources/2026-04-04-mem0-overview.md) | 2026-04-04 | [Mem0](entities/mem0.md), [Work Memory](concepts/work-memory.md), [Agent Memory Boundary](projects/agent-memory-boundary.md) |
+| [2026-04-04-mem0-overview.md](../raw/sources/2026-04-04-mem0-overview.md) | 2026-04-04 | [Mem0](entities/mem0.md), [Work Memory](concepts/work-memory.md), [Agent Memory Boundary](projects/agent-memory-boundary.md), [Filesystem-First Query Flow](procedures/filesystem-first-query-flow.md) |

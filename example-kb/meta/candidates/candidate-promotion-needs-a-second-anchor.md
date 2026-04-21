@@ -4,13 +4,13 @@ title: Candidate: Promotion Needs a Second Anchor
 slug: candidate-promotion-needs-a-second-anchor
 status: open
 created: 2026-04-06
-updated: 2026-04-06
+updated: 2026-04-21
 related_topic: agent-memory-boundary
 derived_from:
   - wiki/projects/agent-memory-boundary.md
   - wiki/insights/candidates-should-stay-supplementary.md
 why_it_matters: This would tighten the standard for when a promising judgment is mature enough to become a standalone insight page.
-next_action: Test the rule against one more source or a second project update before deciding whether to promote or merge it.
+next_action: Test the rule against one more source or a second project update before deciding whether to promote, merge into the project, or fold it into the query procedure.
 ---
 
 # Candidate: Promotion Needs a Second Anchor

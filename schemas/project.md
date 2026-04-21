@@ -21,13 +21,18 @@ tags:
 status: active
 created: 2026-04-06
 updated: 2026-04-06
+search_anchors:
+  - retrieval order
+  - knowledge consultation
+key_entities:
+  - Atomic Knowledge
+  - Mem0
 current_thesis: Filesystem-first work memory is enough for the current stage if retrieval order and page maintenance stay disciplined.
 open_questions:
   - When should a candidate be promoted instead of merged?
   - How should stale candidates be surfaced during lint?
 related_insights:
   - wiki/insights/candidates-should-stay-supplementary.md
-  - wiki/insights/entry-pages-should-drive-retrieval.md
 last_reviewed: 2026-04-06
 ---
 ```
@@ -35,6 +40,8 @@ last_reviewed: 2026-04-06
 ## Field Notes
 
 - `status`: use `active`, `paused`, or `archived`
+- `search_anchors`: short phrases the user may ask with when this thread should be recovered
+- `key_entities`: named tools, products, or systems that should help the project surface during retrieval
 - `current_thesis`: the current best working view, short enough to scan quickly
 - `open_questions`: unresolved questions that still change the direction of the work
 - `related_insights`: the key insight pages this project currently depends on or produced
@@ -61,12 +68,12 @@ Current best synthesis or working thesis.
 ## Related Insights
 
 - [[candidates-should-stay-supplementary]] - guardrail for candidate usage
-- [[entry-pages-should-drive-retrieval]] - operating rule for lookup
 
 ## Related Pages
 
 - [[work-memory]] - core concept
 - [[mem0]] - comparison target
+- [[filesystem-first-query-flow]] - reusable operating sequence for retrieval
 
 ## Next Steps
 

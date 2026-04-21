@@ -23,9 +23,15 @@ tags:
 status: active
 created: 2026-04-06
 updated: 2026-04-06
+search_anchors:
+  - memory product
+  - persona memory
+key_entities:
+  - Mem0
+  - Atomic Knowledge
 related_pages:
   - wiki/projects/agent-memory-boundary.md
-  - wiki/insights/work-memory-is-not-persona-memory.md
+  - wiki/concepts/work-memory.md
 sources:
   - path: raw/sources/mem0-overview.md
     date: 2026-04-06
@@ -35,6 +41,8 @@ sources:
 ## Field Notes
 
 - `aliases`: alternate spellings, brand names, or short names worth preserving
+- `search_anchors`: short retrieval phrases that should help this named thing surface
+- `key_entities`: usually includes the entity itself plus the most relevant comparison targets
 - `related_pages`: only the pages that matter most for reuse or comparison
 - `status`: usually `active` or `archived`; keep it simple unless the entity truly stops mattering
 
@@ -55,5 +63,5 @@ Short description of what it is and why it matters.
 ## Related Pages
 
 - [[agent-memory-boundary]] - ongoing comparison thread
-- [[work-memory-is-not-persona-memory]] - boundary this entity helps clarify
+- [[work-memory]] - boundary this entity helps clarify
 ```

@@ -8,10 +8,11 @@ The example intentionally stays small:
 
 - 1 source capture in `raw/sources/`
 - 1 active project in `wiki/projects/`
+- 1 reusable query procedure in `wiki/procedures/`
 - 1 durable insight in `wiki/insights/`
 - 1 concept and 1 comparison entity in `wiki/`
 - 1 open candidate and 1 resolved candidate in `meta/candidates/`
-- 1 maintenance report in `meta/lint-reports/`
+- 3 lint reports in `meta/lint-reports/`
 
 ## Start Here
 
@@ -22,17 +23,18 @@ If you are new to the repo, use this reading order:
 3. [wiki/recent.md](wiki/recent.md)
 4. [wiki/index.md](wiki/index.md)
 5. [wiki/projects/agent-memory-boundary.md](wiki/projects/agent-memory-boundary.md)
-6. [wiki/insights/candidates-should-stay-supplementary.md](wiki/insights/candidates-should-stay-supplementary.md)
-7. [meta/candidates/index.md](meta/candidates/index.md)
+6. [wiki/procedures/filesystem-first-query-flow.md](wiki/procedures/filesystem-first-query-flow.md)
+7. [wiki/insights/candidates-should-stay-supplementary.md](wiki/insights/candidates-should-stay-supplementary.md)
+8. [meta/candidates/index.md](meta/candidates/index.md)
 
-That path gives you, in order: what is live now, what changed recently, where the pages are, what the main project believes, what durable rule has already been promoted, and what is still unresolved.
+That path gives you, in order: what is live now, what changed recently, where the pages are, what the main project believes, which reusable procedure should run, what durable rule has already been promoted, and what is still unresolved.
 
 ## Scenario Anchors
 
 Use these pages as the main anchors for common workflows:
 
 - `ingest`: start with [wiki/active.md](wiki/active.md), [wiki/recent.md](wiki/recent.md), [wiki/index.md](wiki/index.md), then the relevant formal pages under `wiki/`
-- `query` / `continuation`: start with the same entry pages, then rely mainly on the project and insight pages; use candidate notes only if formal pages still leave a gap
+- `query` / `continuation`: start with the same entry pages, then rely mainly on the project, procedure, and insight pages; use candidate notes only if formal pages still leave a gap
 - `candidate resolution`: start with [meta/candidates/index.md](meta/candidates/index.md), then the target candidate note and its destination formal page
 - `maintenance`: start with `meta/lint-status.json`, then review `wiki/active.md`, `wiki/recent.md`, `wiki/index.md`, the relevant formal pages, and the candidate queue
 

@@ -14,7 +14,7 @@
 
 | Note | Related Topic | Updated | Next Action |
 |------|---------------|---------|-------------|
-| [Candidate: Promotion Needs a Second Anchor](candidate-promotion-needs-a-second-anchor.md) | `agent-memory-boundary` | 2026-04-06 | Validate it against one more source or another formal page update before promotion. |
+| [Candidate: Promotion Needs a Second Anchor](candidate-promotion-needs-a-second-anchor.md) | `agent-memory-boundary` | 2026-04-21 | Validate it against one more source or another formal page update before promotion, merge, or procedure writeback. |
 
 ## Recently Resolved
 

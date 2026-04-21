@@ -49,7 +49,7 @@ Typical checks include:
 - contradictions between pages
 - stale claims that were superseded by newer sources or newer insights
 - orphan pages with no meaningful inbound references
-- missing pages for recurring concepts, entities, projects, or insights
+- missing pages for recurring concepts, entities, projects, procedures, or insights
 - missing or weak cross-links
 - index mismatches between the entry pages and the underlying wiki pages
 - opportunities to merge near-duplicate pages
@@ -59,7 +59,7 @@ In practice, a useful lint pass usually reads at least:
 
 - `meta/lint-status.json` for maintenance freshness
 - `wiki/active.md`, `wiki/recent.md`, and `wiki/index.md` for discoverability and routing health
-- the directly affected `project`, `insight`, `concept`, or `entity` pages for contradictions or stale claims
+- the directly affected `project`, `procedure`, `insight`, `concept`, or `entity` pages for contradictions or stale claims
 - `meta/candidates/index.md` and the relevant open candidate notes for cleanup decisions
 
 ## Where Lint Results Go
@@ -73,7 +73,7 @@ Core writeback locations:
 - `wiki/active.md`: refresh it when the lint result changes a live thesis, active project, or open question
 - `wiki/recent.md`: refresh it when the lint pass materially changes formal knowledge, especially after `promote` or `merge`, and after `drop` only if active work was materially changed
 - `wiki/index.md`: refresh it when a new page was added or discoverability links changed
-- touched formal pages: update any `project`, `insight`, `concept`, or `entity` page that was corrected, merged, or relinked during lint
+- touched formal pages: update any `project`, `procedure`, `insight`, `concept`, or `entity` page that was corrected, merged, or relinked during lint
 - `meta/candidates/index.md`: refresh it whenever candidate status or candidate discoverability changed
 - the candidate notes themselves: update `status`, `updated`, and any resolution metadata when a note is promoted, merged, or dropped
 
@@ -100,7 +100,7 @@ The agent should open the relevant candidate notes, look at `created`, `updated`
 Default handling for a stale candidate during lint:
 
 - `promote` it if the judgment is now durable enough to become first-class formal knowledge
-- `merge` it if the durable part belongs inside an existing `project`, `insight`, `concept`, or `entity` page
+- `merge` it if the durable part belongs inside an existing `project`, `procedure`, `insight`, `concept`, or `entity` page
 - `drop` it if it no longer has long-term reuse value
 - keep it `open` only when it still clearly matters, and in that case refresh `updated` and tighten `next_action`
 
@@ -121,8 +121,8 @@ Before answering `Before we rely on this for planning, run a maintenance pass an
 
 The pass might do this:
 
-- read `wiki/active.md`, `wiki/recent.md`, and `wiki/index.md` to make sure the recent project and insight updates are discoverable
-- read the affected `project` and `insight` pages to see whether any older wording now conflicts with the new source-backed conclusion
+- read `wiki/active.md`, `wiki/recent.md`, and `wiki/index.md` to make sure the recent project, procedure, and insight updates are discoverable
+- read the affected `project`, `procedure`, and `insight` pages to see whether any older wording now conflicts with the new source-backed conclusion
 - review `meta/candidates/index.md` and the two open candidates
 - merge one candidate into the existing project page because it only clarifies the current thesis
 - drop the other because it turned out to be a one-session speculation with no durable reuse value

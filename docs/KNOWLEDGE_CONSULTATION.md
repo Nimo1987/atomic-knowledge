@@ -54,9 +54,10 @@ When consultation is triggered, use this order and stop when you already have en
 2. `wiki/recent.md`
 3. `wiki/index.md`
 4. relevant `wiki/projects/*.md`
-5. relevant `wiki/insights/*.md`
-6. relevant `wiki/concepts/*.md` and `wiki/entities/*.md`
-7. relevant `meta/candidates/*.md`
+5. relevant `wiki/procedures/*.md`
+6. relevant `wiki/insights/*.md`
+7. relevant `wiki/concepts/*.md` and `wiki/entities/*.md`
+8. relevant `meta/candidates/*.md`
 
 This order matters.
 
@@ -64,8 +65,11 @@ This order matters.
 - `recent.md` answers what just changed.
 - `index.md` answers where the broader topic lives.
 - `project` and `insight` pages hold the main reusable work memory.
+- `procedure` pages hold reusable operating sequences and decision rules that should not be rediscovered in every session.
 - `concept` and `entity` pages add definitional or named-thing context only after the main thread is known.
 - `candidate` notes come last because they are supplementary working material, not the primary truth layer.
+
+If several formal pages look plausible, the agent can use optional page-level hints such as `search_anchors` and `key_entities` to narrow the read set before opening more files.
 
 The agent should not jump straight into a broad folder search unless the entry pages fail to narrow the path enough.
 
@@ -84,7 +88,7 @@ So the correct role of a candidate is:
 
 - recover recent unresolved work
 - surface a lead worth checking
-- point the agent toward a project, insight, concept, entity, or source that needs confirmation
+- point the agent toward a project, procedure, insight, concept, entity, or source that needs confirmation
 
 The incorrect role of a candidate is:
 
@@ -102,9 +106,10 @@ A practical pattern is:
 
 1. read `active.md` and `recent.md` to see whether the topic is live or newly changed
 2. use `index.md` to locate the right pages and sources
-3. read only the directly relevant `project` and `insight` pages
-4. add `concept/entity` pages only if terminology or named actors are still unclear
-5. consult `candidate` notes only if the formal wiki still leaves an important gap
+3. read only the directly relevant `project`, `procedure`, and `insight` pages
+4. use optional `search_anchors` and `key_entities` hints when the topic could land in more than one page
+5. add `concept/entity` pages only if terminology or named actors are still unclear
+6. consult `candidate` notes only if the formal wiki still leaves an important gap
 
 This keeps the agent from either missing context or reading the entire knowledge base on every research task.
 

@@ -10,6 +10,14 @@ It is inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/
 
 Use your existing agent, but give it a maintained markdown work-memory layer that survives session resets and can be reused across future research threads.
 
+## Latest Update
+
+This iteration adds three concrete upgrades to the public kit:
+
+- `wiki/procedures/` is now a first-class formal knowledge type for reusable workflows and playbooks
+- formal pages can expose optional `search_anchors` and `key_entities` retrieval hints
+- the template, example KB, health checks, and runtime `get_context` path all understand the new layer
+
 ## Why It Exists
 
 - session resets make it hard for agents to reuse earlier research context reliably
@@ -215,11 +223,12 @@ Atomic Knowledge uses a markdown knowledge base with these core objects:
 - `wiki/concepts/` - stable ideas, methods, frameworks, definitions
 - `wiki/entities/` - people, tools, companies, projects, named systems
 - `wiki/projects/` - ongoing research threads and active workstreams
+- `wiki/procedures/` - recurring workflows, operating playbooks, and durable decision rules
 - `wiki/insights/` - durable takeaways, comparisons, decisions, and synthesis
 - `meta/candidates/` - provisional work-memory notes that may later be promoted, merged, or dropped
 - `meta/lint-status.json` - health and freshness metadata
 
-`active.md` and `recent.md` are the entry pages for knowledge consultation. `projects` and `insights` remain the main durable work-memory layer. `meta/candidates/` is a supplementary buffer for promising but still provisional material, not a first-class truth source.
+`active.md` and `recent.md` are the entry pages for knowledge consultation. `projects`, `procedures`, and `insights` remain the main durable work-memory layer. Formal pages may also carry optional `search_anchors` and `key_entities` frontmatter fields as retrieval hints, but the markdown pages remain the truth layer. `meta/candidates/` is a supplementary buffer for promising but still provisional material, not a first-class truth source.
 
 ## Core Workflows
 
@@ -240,11 +249,13 @@ When the user asks a topic-level question, the agent:
 1. reads `wiki/active.md`
 2. reads `wiki/recent.md`
 3. uses `wiki/index.md` to locate the relevant topic
-4. reads the relevant `wiki/projects/` and `wiki/insights/` pages
-5. adds `wiki/concepts/` and `wiki/entities/` only as needed
-6. consults relevant `meta/candidates/` only if the formal wiki is still insufficient
-7. answers with citations
-8. offers writeback, or performs it only when the user's request already implies record intent
+4. reads the relevant `wiki/projects/` and `wiki/procedures/` pages
+5. reads the relevant `wiki/insights/` pages
+6. adds `wiki/concepts/` and `wiki/entities/` only as needed
+7. uses optional `search_anchors` and `key_entities` hints to narrow the read set when several formal pages look plausible
+8. consults relevant `meta/candidates/` only if the formal wiki is still insufficient
+9. answers with citations
+10. offers writeback, or performs it only when the user's request already implies record intent
 
 ### Writeback
 

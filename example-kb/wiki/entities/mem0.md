@@ -9,10 +9,17 @@ tags:
   - product
 status: active
 created: 2026-04-04
-updated: 2026-04-04
+updated: 2026-04-21
+search_anchors:
+  - memory product
+  - persona memory
+key_entities:
+  - Mem0
+  - Atomic Knowledge
 related_pages:
   - wiki/projects/agent-memory-boundary.md
   - wiki/concepts/work-memory.md
+  - wiki/procedures/filesystem-first-query-flow.md
 sources:
   - path: raw/sources/2026-04-04-mem0-overview.md
     date: 2026-04-04
@@ -39,4 +46,5 @@ Mem0 is a useful comparison entity in this example because it makes memory feel 
 
 - [Work Memory](../concepts/work-memory.md)
 - [Agent Memory Boundary](../projects/agent-memory-boundary.md)
+- [Filesystem-First Query Flow](../procedures/filesystem-first-query-flow.md)
 - [Mem0 Overview Snapshot](../../raw/sources/2026-04-04-mem0-overview.md)

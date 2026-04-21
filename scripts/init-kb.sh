@@ -21,7 +21,7 @@ fi
 
 mkdir -p "$KB_DIR"
 cp -R "$TEMPLATE_DIR/." "$KB_DIR/"
-mkdir -p "$KB_DIR/meta/schemas" "$KB_DIR/meta/candidates" "$KB_DIR/meta/lint-reports"
+mkdir -p "$KB_DIR/wiki/procedures" "$KB_DIR/meta/schemas" "$KB_DIR/meta/candidates" "$KB_DIR/meta/lint-reports"
 cp -R "$SCHEMAS_DIR/." "$KB_DIR/meta/schemas/"
 
 TODAY="$(date +%Y-%m-%d)"
@@ -64,7 +64,7 @@ cat > "$KB_DIR/wiki/index.md" <<EOF
 # Knowledge Base Index
 
 > Last updated: $TODAY
-> Start with \`wiki/active.md\` and \`wiki/recent.md\` for current context. Use this page as the broader catalog. Check \`meta/candidates/index.md\` only for provisional follow-up leads.
+> Start with \`wiki/active.md\` and \`wiki/recent.md\` for current context. Use this page as the broader catalog. When multiple formal pages look close, use page-level \`search_anchors\` and \`key_entities\` hints to narrow the read set. Check \`meta/candidates/index.md\` only for provisional follow-up leads.
 
 ## Entry Pages
 
@@ -72,6 +72,10 @@ cat > "$KB_DIR/wiki/index.md" <<EOF
 - \`recent.md\`: newest additions, updates, corrections, and supersessions
 
 ## Projects
+
+(none)
+
+## Procedures
 
 (none)
 

@@ -25,6 +25,7 @@ This is not a persona-memory system, a save-everything chat archive, or a place 
 - `wiki/concepts/`: stable concepts, definitions, methods, and frameworks
 - `wiki/entities/`: people, organizations, products, tools, datasets, and named systems
 - `wiki/projects/`: ongoing research threads, active workstreams, and recurring open questions
+- `wiki/procedures/`: recurring workflows, operating playbooks, and durable decision rules
 - `wiki/insights/`: durable conclusions, comparisons, decision records, and synthesized takeaways
 - `meta/candidates/`: provisional work-memory notes that may later be promoted, merged, or dropped
 - `meta/lint-status.json`: health and freshness metadata
@@ -35,6 +36,7 @@ Use these local schema files when deciding page structure:
 - `meta/schemas/concept.md`
 - `meta/schemas/entity.md`
 - `meta/schemas/project.md`
+- `meta/schemas/procedure.md`
 - `meta/schemas/insight.md`
 - `meta/schemas/candidate.md` when the knowledge base provides it
 
@@ -147,9 +149,10 @@ When knowledge-base consultation is triggered, read in this order and stop when 
 2. `wiki/recent.md`
 3. `wiki/index.md`
 4. relevant `wiki/projects/*.md`
-5. relevant `wiki/insights/*.md`
-6. relevant `wiki/concepts/*.md` and `wiki/entities/*.md`
-7. relevant `meta/candidates/*.md` only if the formal wiki is still insufficient
+5. relevant `wiki/procedures/*.md`
+6. relevant `wiki/insights/*.md`
+7. relevant `wiki/concepts/*.md` and `wiki/entities/*.md`
+8. relevant `meta/candidates/*.md` only if the formal wiki is still insufficient
 
 Entry pages come first. Detailed body pages come second. Do not jump straight into broad folder search unless the entry pages do not narrow the path enough.
 
@@ -181,9 +184,10 @@ Run this workflow when the user explicitly asks to ingest, absorb, save, or othe
    - `concept` for stable ideas and frameworks
    - `entity` for named things
    - `project` for ongoing threads and open questions
+   - `procedure` for recurring workflows, playbooks, and operating rules
    - `insight` for durable conclusions and synthesis
 6. If the conversation also creates high-value but not-yet-stable work memory, capture it in `meta/candidates/` instead of forcing it into a formal wiki page.
-7. Create or update relevant pages in `wiki/concepts/`, `wiki/entities/`, `wiki/projects/`, and `wiki/insights/`.
+7. Create or update relevant pages in `wiki/concepts/`, `wiki/entities/`, `wiki/projects/`, `wiki/procedures/`, and `wiki/insights/`.
 8. Follow the page structures in `meta/schemas/`.
 9. Add or refresh cross-links.
 10. Update `wiki/active.md`, `wiki/recent.md`, `wiki/index.md`, `meta/candidates/index.md`, `wiki/log.md`, and `meta/lint-status.json` as needed.
@@ -191,15 +195,16 @@ Run this workflow when the user explicitly asks to ingest, absorb, save, or othe
 ## Query Workflow
 
 1. If knowledge-base consultation is triggered, follow the retrieval order above.
-2. Read directly relevant pages before falling back to raw sources.
-3. Use `meta/candidates/` only as supplementary leads:
+2. Use page frontmatter fields such as `search_anchors` and `key_entities` as retrieval hints when multiple formal pages are plausible.
+3. Read directly relevant pages before falling back to raw sources.
+4. Use `meta/candidates/` only as supplementary leads:
    - to surface tentative hypotheses worth verifying
    - to recover recent but unresolved work
    - to point toward pages, sources, or open questions that need confirmation
-4. Answer with explicit file citations.
-5. Keep stable wiki-backed conclusions separate from tentative candidate-backed clues.
-6. Do not present a candidate as the sole authority for a final conclusion unless the user explicitly asks to inspect provisional material.
-7. If the user's request already implies writeback, promotion, merge, drop, or maintenance, perform that workflow directly. Otherwise, offer the relevant writeback instead of persisting it automatically.
+5. Answer with explicit file citations.
+6. Keep stable wiki-backed conclusions separate from tentative candidate-backed clues.
+7. Do not present a candidate as the sole authority for a final conclusion unless the user explicitly asks to inspect provisional material.
+8. If the user's request already implies writeback, promotion, merge, drop, or maintenance, perform that workflow directly. Otherwise, offer the relevant writeback instead of persisting it automatically.
 
 ## Candidate Rules
 
@@ -293,7 +298,7 @@ Periodically review the knowledge base for:
 - contradictions between pages
 - stale claims superseded by newer sources
 - orphan pages with no meaningful inbound references
-- missing pages for recurring concepts, entities, projects, or insights
+- missing pages for recurring concepts, entities, projects, procedures, or insights
 - missing cross-links
 - index mismatches
 - opportunities to merge duplicate pages

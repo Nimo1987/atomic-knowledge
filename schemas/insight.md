@@ -22,6 +22,12 @@ status: active
 created: 2026-04-06
 updated: 2026-04-06
 confidence: high
+search_anchors:
+  - candidate buffer
+  - retrieval rule
+key_entities:
+  - Atomic Knowledge
+  - Mem0
 sources:
   - path: raw/sources/research-notes.md
     date: 2026-04-06
@@ -30,8 +36,7 @@ derived_from:
   - wiki/concepts/work-memory.md
 related_projects:
   - wiki/projects/agent-memory-boundary.md
-supersedes:
-  - wiki/insights/raw-candidate-notes-can-answer-directly.md
+supersedes: []
 superseded_by: []
 ---
 ```
@@ -39,6 +44,8 @@ superseded_by: []
 ## Field Notes
 
 - `confidence`: use `low`, `medium`, or `high` for how settled the conclusion is right now
+- `search_anchors`: short retrieval phrases that should help the insight surface from normal user wording
+- `key_entities`: named things that should co-surface this insight when relevant
 - `derived_from`: direct upstream pages or source captures that produced this insight
 - `related_projects`: projects that should surface this insight during review or retrieval
 - `supersedes` and `superseded_by`: only use these when one insight clearly replaces or corrects another

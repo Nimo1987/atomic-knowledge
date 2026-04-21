@@ -18,7 +18,7 @@ It is not a persona-memory layer, a save-everything chat archive, or a place to 
 Atomic Knowledge keeps value in three layers:
 
 - `raw/sources/` captures external material in an immutable form
-- `wiki/` captures compiled knowledge such as concepts, entities, projects, and insights
+- `wiki/` captures compiled knowledge such as concepts, entities, projects, procedures, and insights
 - `meta/candidates/` captures provisional but valuable work memory that is not stable enough for the formal wiki yet
 
 Not every durable result starts as a document. Some of the most reusable material appears during comparison, synthesis, and discussion with the agent. That material should not disappear into chat history. Stable outcomes can be written into the wiki when the user asks to record them. Promising but unresolved outcomes should land in the candidate buffer until they can be promoted, merged, or dropped.
@@ -28,7 +28,7 @@ Not every durable result starts as a document. Some of the most reusable materia
 The public kit is built around three recurring workflows:
 
 - `ingest`: capture a source in `raw/sources/` and update the formal wiki
-- `query`: recover context through `active -> recent -> index -> relevant formal pages`
+- `query`: recover context through `active -> recent -> index -> projects -> procedures -> insights -> supporting pages`
 - `maintenance`: run lint, review candidate notes, and resolve them through `open -> promoted | merged | dropped`
 
 See [LINT_WORKFLOW.md](LINT_WORKFLOW.md) for the maintenance loop and [CANDIDATE_LIFECYCLE.md](CANDIDATE_LIFECYCLE.md) for candidate review and resolution.
@@ -56,6 +56,8 @@ The protocol uses a small set of entry pages so new sessions can recover context
 
 These are the primary retrieval entry pages, which is why the lookup model starts with `active -> recent -> index -> detailed pages`, instead of jumping straight into broad folder search.
 
+When multiple detailed pages are plausible, optional page frontmatter such as `search_anchors` and `key_entities` can help narrow the read set without replacing the markdown wiki as the truth layer.
+
 `meta/candidates/index.md` is not part of that primary entry path. It is a supplementary review queue for provisional notes that may later be promoted, merged, or dropped, and it should be consulted only after the formal wiki is still insufficient.
 
 ## Design Position
@@ -71,7 +73,7 @@ For the current stage, the protocol does not make a database the primary storage
 - `AGENT.md`: a platform-neutral protocol file for persistent agent instructions
 - `docs/AGENT_NATIVE_USAGE.md`: how the protocol should behave inside an existing agent conversation
 - `knowledge-base-template/`: a generic markdown knowledge-base skeleton
-- `schemas/`: canonical page schemas for concepts, entities, projects, insights, and candidates
+- `schemas/`: canonical page schemas for concepts, entities, projects, procedures, insights, and candidates
 - `scripts/init-kb.sh`: initializes a knowledge base and renders a concrete `AGENT.md`
 - `scripts/check-kb.sh`: an optional read-only local health check helper
 - `example-kb/`: a small readable knowledge base that shows the model after ingest, query, and maintenance work

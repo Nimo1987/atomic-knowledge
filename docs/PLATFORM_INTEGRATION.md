@@ -26,7 +26,7 @@ The platform wrapper should preserve the same work-memory behavior everywhere:
 1. Run `bash scripts/init-kb.sh <path>`.
 2. Generate `<path>/AGENT.md` with the real knowledge-base path.
 3. Install that file into the agent platform's instruction surface.
-4. Ensure the platform keeps the retrieval order defined in `AGENT.md`: `active -> recent -> index -> project -> insight -> concept/entity -> candidate`.
+4. Ensure the platform keeps the retrieval order defined in `AGENT.md`: `active -> recent -> index -> project -> procedure -> insight -> concept/entity -> candidate`.
 
 ## Maintenance Behavior
 
@@ -71,7 +71,7 @@ For research, continuation, comparison, or topic-level planning tasks, the platf
 2. `wiki/recent.md`
 3. `wiki/index.md`
 
-Only then should it expand into detailed `project`, `insight`, `concept`, `entity`, and finally `candidate` pages as needed.
+Only then should it expand into detailed `project`, `procedure`, `insight`, `concept`, `entity`, and finally `candidate` pages as needed.
 
 For simple syntax, API, execution, or immediate debugging tasks, the platform does not need to force that knowledge-base-first path.
 
